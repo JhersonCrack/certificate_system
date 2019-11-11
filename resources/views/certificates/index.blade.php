@@ -13,13 +13,13 @@
     </tr>
   </thead>
   <tbody>
-    @foreach($users as $user)
+    @foreach($certificates as $certificate)
       <tr class="hover:bg-teal-300">
-        <td> {{ $user->id }} </td>
-        <td> {{ $user->name }} </td>
-        <td> {{ $user->email }} </td>
-        <td> {{ $user->dni }} </td>
-        <td> {{ $user->cip }} </td>
+        <td> {{ $certificate->id }} </td>
+        <td> {{ $certificate->name }} </td>
+        <td> {{ $certificate->email }} </td>
+        <td> {{ $certificate->dni }} </td>
+        <td> {{ $certificate->cip }} </td>
         <td> Editar o eliminar </td>
       </tr>
     @endforeach

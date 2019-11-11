@@ -20,6 +20,7 @@ Route::get('/', function () {
 });
 
 Route::resource('users', 'UserController'); 
+Route::resource('certificates', 'CertificateController'); 
 
 Auth::routes();
 

@@ -71,74 +71,77 @@
     </div>
 </body> -->
 <body>
-<header class="border-b md:flex md:items-center md:justify-between p-1 pb-0 shadow-lg md:pb-2">
-  
-    <!-- Logo text or image -->
-    <div class="flex items-center justify-between mb-4 md:mb-0">
-        <a href="{{ url('/') }}">
-            <img class="h-16 w-50" src="{{ asset('images/logo.png') }}" alt="">
-        </a>
-    </div>
-    <!-- END Logo text or image -->
+    <header class="border-b md:flex md:items-center md:justify-between p-1 pb-0 shadow-lg md:pb-2">
     
-    <!-- Search field -->
-    <form class="mb-4 w-full md:mb-0 md:w-1/4">
-        <label class="hidden" for="search-form">Buscar</label>
-        <input class="bg-grey-lightest border-2 focus:border-orange p-2 rounded-lg shadow-inner w-full" placeholder="Buscar por DNI o CIP" type="text">
-        <button class="hidden">Submit</button>
-    </form>
-    <!-- END Search field -->
-    
-    <!-- Global navigation -->
-    <nav>
-        <ul class="list-reset md:flex md:items-center">
-            <li class="md:ml-4">
-                <a class="block no-underline hover:bg-gray-800 py-2 text-grey-darkest hover:text-white md:border-none md:p-0" href="{{ route('users.index') }}">
-                Usuarios
-                </a>
-            </li>
-            <li class="md:ml-4">
-                <a class="border-t block no-underline hover:underline py-2 text-grey-darkest hover:text-black md:border-none md:p-0" href="#">
-                Certificados
-                </a>
-            </li>
-
-            @guest
-                <li class="md:ml-4 block no-underline hover:underline py-2 text-grey-darkest hover:text-black md:border-none md:p-0">
-                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                </li>
-                @if (Route::has('register'))
-                    <li class="md:ml-4">
-                        <a class="nav-link block no-underline hover:underline py-2 text-grey-darkest hover:text-black md:border-none md:p-0" href="{{ route('register') }}">{{ __('Register') }}</a>
-                    </li>
-                @endif
-            @else
-                <li class="md:ml-4 dropdown">
-                    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                        {{ Auth::user()->name }} <span class="caret"></span>
+        <!-- Logo text or image -->
+        <div class="flex items-center justify-between mb-4 md:mb-0">
+            <a href="{{ route('users.index') }}">
+                <img class="h-16 w-50" src="{{ asset('images/logo.png') }}" alt="">
+            </a>
+        </div>
+        <!-- END Logo text or image -->
+        
+        <!-- Search field -->
+        <form class="mb-4 w-full md:mb-0 md:w-1/4">
+            <label class="hidden" for="search-form">Buscar</label>
+            <input class="bg-grey-lightest border-2 focus:border-orange p-2 rounded-lg shadow-inner w-full" placeholder="Buscar por DNI o CIP" type="text">
+            <button class="hidden">Submit</button>
+        </form>
+        <!-- END Search field -->
+        
+        <!-- Global navigation -->
+        <nav>
+            <ul class="list-reset md:flex md:items-center">
+                <li class="md:ml-4">
+                    <a class="block no-underline hover:bg-gray-800 py-2 text-grey-darkest hover:text-white md:border-none md:p-0" href="{{ route('users.index') }}">
+                    Usuarios
                     </a>
+                </li>
+                <li class="md:ml-4">
+                    <a class="border-t block no-underline hover:underline py-2 text-grey-darkest hover:text-black md:border-none md:p-0" href="{{ route('certificates.index') }}">
+                    Certificados
+                    </a>
+                </li>
 
-                    <div class="dropdown-menu dropdown-menu-right object-cover" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="{{ route('logout') }}"
-                            onclick="event.preventDefault();
-                                            document.getElementById('logout-form').submit();">
-                            {{ __('Logout') }}
+                @guest
+                    <li class="md:ml-4 block no-underline hover:underline py-2 text-grey-darkest hover:text-black md:border-none md:p-0">
+                        <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                    </li>
+                    @if (Route::has('register'))
+                        <li class="md:ml-4">
+                            <a class="nav-link block no-underline hover:underline py-2 text-grey-darkest hover:text-black md:border-none md:p-0" href="{{ route('register') }}">{{ __('Register') }}</a>
+                        </li>
+                    @endif
+                @else
+                    <li class="md:ml-4 dropdown">
+                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                            {{ Auth::user()->name }} <span class="caret"></span>
                         </a>
 
-                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                            @csrf
-                        </form>
-                    </div>
-                </li>
-            @endguest
-        </ul>
+                        <div class="dropdown-menu dropdown-menu-right object-cover" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="{{ route('logout') }}"
+                                onclick="event.preventDefault();
+                                                document.getElementById('logout-form').submit();">
+                                {{ __('Logout') }}
+                            </a>
 
-    </nav>
-    <!-- END Global navigation -->
-</header>    
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                @csrf
+                            </form>
+                        </div>
+                    </li>
+                @endguest
+            </ul>
 
-<main class="py-4">
+        </nav>
+        <!-- END Global navigation -->
+    </header>   
+    <div class="flex sm:w-screen md:flex lg:flex xl:flex">
+        <div class="w-1/12"></div>
+        <div class="w-10/12 bg-gray-200">
             @yield('content')
-        </main>
+        </div>
+        <div class="w-1/12"></div>
+    </div> 
 <body>
 </html>
