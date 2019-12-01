@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateCertificatesTable extends Migration
+class CreateThemesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,12 @@ class CreateCertificatesTable extends Migration
      */
     public function up()
     {
-        Schema::create('certificates', function (Blueprint $table) {
+        Schema::create('themes', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name');
-            $table->date('date');
-            $table->string('organizedBy');
+            $table->string('ponent');
+            
+
             $table->timestamps();
         });
     }
@@ -29,6 +30,6 @@ class CreateCertificatesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('certificates');
+        Schema::dropIfExists('themes');
     }
 }

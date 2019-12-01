@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\User;
+use App\Theme;
 use Illuminate\Http\Request;
 
-class UserController extends Controller
+class ThemeController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +14,8 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users = User::all();
-        return view('users.index', compact('users'));
+        $themes = Theme::all();
+        return view('themes.index', compact('themes'));
     }
 
     /**
@@ -25,7 +25,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        return view('users.create');
+        //
     }
 
     /**
@@ -42,10 +42,10 @@ class UserController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Theme  $theme
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Theme $theme)
     {
         //
     }
@@ -53,10 +53,10 @@ class UserController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Theme  $theme
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Theme $theme)
     {
         //
     }
@@ -65,10 +65,10 @@ class UserController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Theme  $theme
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Theme $theme)
     {
         //
     }
@@ -76,10 +76,10 @@ class UserController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Theme  $theme
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Theme $theme)
     {
         //
     }

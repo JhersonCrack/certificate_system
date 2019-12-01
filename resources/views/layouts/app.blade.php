@@ -18,6 +18,8 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
 </head>
 <!-- <body>
     <div id="app">
@@ -70,78 +72,81 @@
         </main>
     </div>
 </body> -->
-<body>
-    <header class="border-b md:flex md:items-center md:justify-between p-1 pb-0 shadow-lg md:pb-2">
-    
-        <!-- Logo text or image -->
-        <div class="flex items-center justify-between mb-4 md:mb-0">
+<body class="bg-local" style="background-image: url({{ asset('images/logo.jpg') }})">
+    <div id="app" class="block sm:none md:px-12 lg:px-12 xl:px-12">
+        <header class="bg-transparent md:flex md:items-center md:justify-between p-1 md:pb-2">
+        
             <a href="{{ route('users.index') }}">
-                <img class="h-16 w-50" src="{{ asset('images/logo.png') }}" alt="">
+                <div class="flex">
+                    <div class="">
+                        <img class="h-20" src="{{ asset('images/logo.png') }}" alt="">
+                    </div>
+                    <div class="ml-2 w-10 text-lg">
+                        <strong>SISTEMA DE CERTIFICADOS</strong>
+                    </div>
+                </div>
             </a>
-        </div>
-        <!-- END Logo text or image -->
-        
-        <!-- Search field -->
-        <form class="mb-4 w-full md:mb-0 md:w-1/4">
-            <label class="hidden" for="search-form">Buscar</label>
-            <input class="bg-grey-lightest border-2 focus:border-orange p-2 rounded-lg shadow-inner w-full" placeholder="Buscar por DNI o CIP" type="text">
-            <button class="hidden">Submit</button>
-        </form>
-        <!-- END Search field -->
-        
-        <!-- Global navigation -->
-        <nav>
-            <ul class="list-reset md:flex md:items-center">
-                <li class="md:ml-4">
-                    <a class="block no-underline hover:bg-gray-800 py-2 text-grey-darkest hover:text-white md:border-none md:p-0" href="{{ route('users.index') }}">
-                    Usuarios
-                    </a>
-                </li>
-                <li class="md:ml-4">
-                    <a class="border-t block no-underline hover:underline py-2 text-grey-darkest hover:text-black md:border-none md:p-0" href="{{ route('certificates.index') }}">
-                    Certificados
-                    </a>
-                </li>
-
-                @guest
-                    <li class="md:ml-4 block no-underline hover:underline py-2 text-grey-darkest hover:text-black md:border-none md:p-0">
-                        <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                    </li>
-                    @if (Route::has('register'))
-                        <li class="md:ml-4">
-                            <a class="nav-link block no-underline hover:underline py-2 text-grey-darkest hover:text-black md:border-none md:p-0" href="{{ route('register') }}">{{ __('Register') }}</a>
-                        </li>
-                    @endif
-                @else
-                    <li class="md:ml-4 dropdown">
-                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                            {{ Auth::user()->name }} <span class="caret"></span>
+            <!-- END Logo text or image -->
+            
+            <!-- Search field -->
+            <form class="mx-auto pl-20 md:mb-0 md:w-1/4">
+                <label class="hidden" for="search-form">Buscar</label>
+                <!-- <span class="icon"><i class="fa fa-search"></i></span> -->
+                <input class="bg-grey-lightest border-2 leading-normal focus:bg-white focus:outline-none p-2 rounded-full shadow-inner w-full" placeholder="Buscar por DNI o CIP" type="search" id="search">
+                
+                <button class="hidden">Submit</button>
+            </form>
+            <!-- END Search field -->
+            
+            <!-- Global navigation -->
+            <nav>
+                <ul class="list-reset md:flex md:items-center">
+                    <li>
+                        <a class="bg-gray-200 border hover:border-gray-600 hover:bg-gray-400 hover:text-gray-900 text-gray-700 font-bold py-3 px-4 rounded-l focus:border-gray-700 border-b-4 hover:border-gray-500" href="{{ route('users.index') }}">
+                            Usuarios
                         </a>
+                    </li>
+                    <li>
+                        <a class="bg-gray-200 border hover:border-gray-600 hover:bg-gray-400 hover:text-gray-900 text-gray-700 font-bold py-3 px-4 rounded-r focus:border-gray-700 border-b-4 hover:border-gray-500" href="{{ route('certificates.index') }}">
+                            Certificados
+                        </a>
+                    </li>
 
-                        <div class="dropdown-menu dropdown-menu-right object-cover" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="{{ route('logout') }}"
-                                onclick="event.preventDefault();
-                                                document.getElementById('logout-form').submit();">
-                                {{ __('Logout') }}
+                   <!--  @guest
+                        <li class="md:ml-4 block no-underline hover:underline py-2 text-grey-darkest hover:text-black md:border-none md:p-0">
+                            <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                        </li>
+                        @if (Route::has('register'))
+                            <li class="md:ml-4">
+                                <a class="nav-link block no-underline hover:underline py-2 text-grey-darkest hover:text-black md:border-none md:p-0" href="{{ route('register') }}">{{ __('Register') }}</a>
+                            </li>
+                        @endif
+                    @else
+                        <li class="md:ml-4 dropdown">
+                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                {{ Auth::user()->name }} <span class="caret"></span>
                             </a>
 
-                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                @csrf
-                            </form>
-                        </div>
-                    </li>
-                @endguest
-            </ul>
+                            <div class="dropdown-menu dropdown-menu-right object-cover" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="{{ route('logout') }}"
+                                    onclick="event.preventDefault();
+                                                    document.getElementById('logout-form').submit();">
+                                    {{ __('Logout') }}
+                                </a>
 
-        </nav>
-        <!-- END Global navigation -->
-    </header>   
-    <div class="flex sm:w-screen md:flex lg:flex xl:flex">
-        <div class="w-1/12"></div>
-        <div class="w-10/12 bg-gray-200">
-            @yield('content')
-        </div>
-        <div class="w-1/12"></div>
-    </div> 
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                    @csrf
+                                </form>
+                            </div>
+                        </li>
+                    @endguest -->
+                </ul>
+            </nav>
+            <!-- END Global navigation -->
+        </header>   
+       
+        @yield('content')
+        
+    </div>
 <body>
 </html>

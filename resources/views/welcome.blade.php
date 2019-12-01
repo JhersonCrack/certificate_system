@@ -1,4 +1,4 @@
 @extends('layouts.app')
 @section('content')
-    Este es el welcome tmr
+    <h1>Este el el welcome trmr</h1>
 @endsection

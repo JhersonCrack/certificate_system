@@ -21,6 +21,7 @@ Route::get('/', function () {
 
 Route::resource('users', 'UserController'); 
 Route::resource('certificates', 'CertificateController'); 
+Route::resource('themes', 'ThemeController'); 
 
 Auth::routes();
 
