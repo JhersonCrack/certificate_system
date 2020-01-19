@@ -1,5 +1,6 @@
 <?php
 
+use App\Certificate;
 use Illuminate\Database\Seeder;
 
 class CertificatesTableSeeder extends Seeder
@@ -11,6 +12,6 @@ class CertificatesTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(Certificate::class, 20)->create();
+        factory(Certificate::class, 150)->create();
     }
 }

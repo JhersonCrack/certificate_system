@@ -3,6 +3,7 @@ module.exports = {
     extend: {
       colors: {
         'elegantblack': '#333333',
+        
       },
     },
   },

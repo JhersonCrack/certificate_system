@@ -22,14 +22,14 @@
       <label class="block text-gray-700 text-sm font-bold mb-2" for="dni">
         DNI
       </label>
-      <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="dni" type="text" placeholder="24587820">
+      <input class="appearance-none block w-32 bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="dni" type="text" placeholder="24587820">
     </div>
 
     <div class="mb-4">
       <label class="block text-gray-700 text-sm font-bold mb-2" for="cip">
         CIP
       </label>
-      <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="cip" type="text" placeholder="24879">
+      <input class="appearance-none block w-32 bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="cip" type="text" placeholder="24879">
     </div>
 
     <div class="flex items-center justify-between">

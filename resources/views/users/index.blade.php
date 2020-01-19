@@ -44,12 +44,7 @@
   </tbody>
 </table>
 
+
+    <add-buttom-user></add-buttom-user>
   
-    <div class="pt-2 flex justify-end pr-10">
-      <a href="{{ route('users.create') }}">  
-        <img class="h-16" src="{{ asset('images/add.png') }}" alt="">
-      </a>
-    </div>
-
-
 @endsection

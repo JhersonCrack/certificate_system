@@ -14,7 +14,7 @@ class CertificateController extends Controller
      */
     public function index()
     {
-        $certificates = Certificate::all();
+        $certificates = Certificate::paginate(15);
         return view('certificates.index', compact('certificates'));
     }
 
@@ -25,7 +25,7 @@ class CertificateController extends Controller
      */
     public function create()
     {
-        //
+        return 'This is the page to create new Certificate xd';
     }
 
     /**
